@@ -1,0 +1,10 @@
+D000002	Temefos
+D000006	Abdomen, Acute
+D000007	Abdominal Injuries
+D000009	Abdominal Muscles
+D000010	Abducens Nerve
+D000011	Abelson murine leukemia virus
+D000016	Abnormalities, Radiation-Induced
+D000017	ABO Blood-Group System
+D000018	Abomasum
+D000022	Abortion, Spontaneous
