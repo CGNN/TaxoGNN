@@ -49,8 +49,6 @@ def evaluate(pred, label):
     return roc_auc_score(label, pred), f1_score(label, y_pred), auc(rs, ps)
 
 def generate_pos_taxon_edges(src_data_path, fos2idx):
-    # src_data_path = '/shared/data2/qiz3/taxograph/dataset/MAG'
-    # src_data_path = '/shared/data2/qiz3/taxograph/dataset/MeSH'
     miss_cnt = 0
     with open(src_data_path + '/taxonomy.txt') as IN, open(src_data_path+'/taxonomy_network.txt', 'w') as OUT:
         pos_edges = set()    
@@ -319,7 +317,7 @@ if __name__ == '__main__':
     etypes = [g.to_canonical_etype(etype) for etype in g.etypes]
     test_type = [g.to_canonical_etype(etype) for etype in test_type]
 
-    # Split edge set for training and testing (Qi: Per type)
+    # Split edge set for training and testing
     edge_dict, train_edge,test_edge = {}, {} ,{}
     train_dict = {}
     reverse_dict = {}
@@ -352,10 +350,6 @@ if __name__ == '__main__':
     #training_seeds = pickle.load(open('top_50k_pairs.p', 'rb'))[:1400]
     if 'MAG' in args.data_path:
         seed_path = args.data_path+'/boostrapping_topdegree_50000.p'
-        # '/original_top_50k_pairs.p'
-        # '/shared/data2/bowenj4/qi/TaxoGNN/boostrapping_topdegree_50000.p'
-        # '/shared/data2/bowenj4/qi/TaxoGNN/selected_author_year_1000.p'
-        # '/shared/data2/bowenj4/qi/TaxoGNN/selected_author_year_diffauthor.p'
     else:
         if args.use_bootstrap:
             seed_path = args.data_path+'/MeSH_training_seed_bootstrapped.p'
